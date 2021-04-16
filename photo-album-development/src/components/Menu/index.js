@@ -10,7 +10,7 @@ const createClasses = makeStyles((theme) => ({
     }
 }));
 
-const Menu = ({ value, handleChange }) => {
+const Menu = ({ value, tabs, handleChange }) => {
     const classes = createClasses();
 
     return (
@@ -24,9 +24,9 @@ const Menu = ({ value, handleChange }) => {
                     centered
                     classes={{ indicator: classes.tabIndicator }}
                 >
-                    <Tab label="All photos" />
-                    <Tab label="Albums" />
-                    <Tab label="Recently Deleted" />
+                    {
+                        tabs.map((tab, index) => <Tab label={tab.title} key={index} />)
+                    }
                 </Tabs>
             </Paper>
         </Grid>
